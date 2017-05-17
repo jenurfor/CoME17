@@ -1,0 +1,14 @@
+nids <- vector()
+pos <- 1
+len_nl <- length(names_list)
+for(n in names_list){
+  for(nn in names_list[pos:len_nl]){
+    if(n != nn){
+      m <- getMRCA(t,c(n,nn))
+      if(m %in% nids == FALSE){
+        nids <- c(nids,m)
+      }
+    }
+  }
+  pos<-pos+1
+}
